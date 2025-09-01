@@ -43,6 +43,25 @@ export default function AuthPage() {
         if (error) throw error
 
         if (data.user) {
+          // Create profile record
+          try {
+            const { error: profileError } = await supabase
+              .from('profiles')
+              .insert({
+                id: data.user.id,
+                email: formData.email,
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                role: formData.role
+              })
+            
+            if (profileError && !profileError.message.includes('duplicate key')) {
+              console.error('Profile creation error:', profileError)
+            }
+          } catch (profileErr) {
+            console.error('Profile creation failed:', profileErr)
+          }
+          
           setMessage('Check your email for a verification link!')
         }
       } else {
@@ -59,7 +78,8 @@ export default function AuthPage() {
         }
       }
     } catch (error: any) {
-      setMessage(error.message)
+      console.error('Auth error:', error)
+      setMessage(error.message || 'An error occurred. Please try again.')
     } finally {
       setLoading(false)
     }
