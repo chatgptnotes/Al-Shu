@@ -96,6 +96,13 @@ export default function DashboardPage() {
       color: 'bg-purple-500'
     },
     {
+      title: 'Flashcards',
+      description: 'Spaced repetition learning',
+      icon: BookOpen,
+      href: '/flashcards',
+      color: 'bg-indigo-500'
+    },
+    {
       title: 'Study Planner',
       description: 'Organize your time',
       icon: Calendar,
@@ -107,7 +114,7 @@ export default function DashboardPage() {
       description: 'IA/EE guidance',
       icon: BookOpen,
       href: '/coursework',
-      color: 'bg-indigo-500'
+      color: 'bg-red-500'
     },
     {
       title: 'Progress Reports',
@@ -157,7 +164,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center">
               <MessageCircle className="h-8 w-8 text-blue-500" />
@@ -170,17 +177,27 @@ export default function DashboardPage() {
           
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center">
-              <Clock className="h-8 w-8 text-green-500" />
+              <HelpCircle className="h-8 w-8 text-purple-500" />
               <div className="ml-4">
-                <p className="text-2xl font-semibold text-gray-900">4.5h</p>
-                <p className="text-gray-600">Study Time Today</p>
+                <p className="text-2xl font-semibold text-gray-900">47</p>
+                <p className="text-gray-600">Quizzes Completed</p>
               </div>
             </div>
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center">
-              <TrendingUp className="h-8 w-8 text-purple-500" />
+              <BookOpen className="h-8 w-8 text-indigo-500" />
+              <div className="ml-4">
+                <p className="text-2xl font-semibold text-gray-900">156</p>
+                <p className="text-gray-600">Cards Reviewed</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center">
+              <TrendingUp className="h-8 w-8 text-green-500" />
               <div className="ml-4">
                 <p className="text-2xl font-semibold text-gray-900">85%</p>
                 <p className="text-gray-600">Average Score</p>
