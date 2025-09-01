@@ -31,7 +31,8 @@ export default function DashboardPage() {
 
   useEffect(() => {
     checkUser()
-  }, [router])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const checkUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()

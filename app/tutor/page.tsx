@@ -43,7 +43,8 @@ export default function TutorPage() {
 
   useEffect(() => {
     checkUserAndLoadData()
-  }, [router])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     scrollToBottom()
@@ -110,7 +111,7 @@ export default function TutorPage() {
           .single()
         
         if (!newStudent) return
-        student.id = newStudent.id
+        if (student) student.id = newStudent.id
       }
 
       const { data: session } = await supabase
