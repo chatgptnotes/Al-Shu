@@ -98,6 +98,8 @@ export default function TutorPage() {
         .eq('user_id', userId)
         .single()
 
+      let studentId: string
+      
       if (!student) {
         // Create student profile if it doesn't exist
         const { data: newStudent } = await supabase
@@ -111,13 +113,15 @@ export default function TutorPage() {
           .single()
         
         if (!newStudent) return
-        if (student) student.id = newStudent.id
+        studentId = newStudent.id
+      } else {
+        studentId = student.id
       }
 
       const { data: session } = await supabase
         .from('chat_sessions')
         .insert({
-          student_id: student.id,
+          student_id: studentId,
           title: `${subject || 'General'} Session`,
           subject_id: null, // We'll add subject linking later
         })
