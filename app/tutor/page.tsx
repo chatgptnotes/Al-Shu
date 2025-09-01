@@ -43,7 +43,7 @@ export default function TutorPage() {
 
   useEffect(() => {
     checkUserAndLoadData()
-  }, [])
+  }, [router])
 
   useEffect(() => {
     scrollToBottom()
@@ -327,10 +327,10 @@ export default function TutorPage() {
             <div className="text-center py-12">
               <Brain className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                Hi! I'm your AI tutor 👋
+                Hi! I&apos;m your AI tutor 👋
               </h2>
               <p className="text-gray-600 max-w-md mx-auto">
-                Ask me anything about your subjects. I'll help you understand concepts step-by-step and guide you through problems.
+                Ask me anything about your subjects. I&apos;ll help you understand concepts step-by-step and guide you through problems.
               </p>
               {subject && (
                 <p className="text-sm text-blue-600 mt-2">

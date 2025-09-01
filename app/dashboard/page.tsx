@@ -31,7 +31,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     checkUser()
-  }, [])
+  }, [router])
 
   const checkUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
@@ -151,7 +151,7 @@ export default function DashboardPage() {
             Your Learning Dashboard
           </h1>
           <p className="text-gray-600">
-            Choose what you'd like to work on today. I'm here to help you succeed!
+            Choose what you&apos;d like to work on today. I&apos;m here to help you succeed!
           </p>
         </div>
 

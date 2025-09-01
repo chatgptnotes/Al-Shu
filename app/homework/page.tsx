@@ -14,6 +14,7 @@ import {
   CheckCircle
 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface UploadedFile {
   file: File
@@ -183,7 +184,7 @@ This will help me provide more targeted, step-by-step guidance! 📚`
               <h2 className="text-lg font-semibold text-blue-900 mb-2">How it works</h2>
               <ol className="text-sm text-blue-800 space-y-1 list-decimal list-inside">
                 <li>Upload photos of your homework problems or type your question</li>
-                <li>Add context about the subject and what you're struggling with</li>
+                <li>Add context about the subject and what you&apos;re struggling with</li>
                 <li>Get step-by-step explanations that help you learn</li>
               </ol>
             </div>
@@ -246,10 +247,12 @@ This will help me provide more targeted, step-by-step guidance! 📚`
                       <div key={index} className="relative">
                         <div className="border rounded-lg p-2 bg-gray-50">
                           {file.type === 'image' ? (
-                            <img
+                            <Image
                               src={file.preview}
                               alt={file.file.name}
                               className="w-full h-24 object-cover rounded"
+                              width={100}
+                              height={96}
                             />
                           ) : (
                             <div className="h-24 flex items-center justify-center bg-gray-200 rounded">
@@ -335,7 +338,7 @@ This will help me provide more targeted, step-by-step guidance! 📚`
 
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               <p className="text-sm text-yellow-800">
-                <strong>Remember:</strong> I'm here to help you learn, not to do your homework for you! 
+                <strong>Remember:</strong> I&apos;m here to help you learn, not to do your homework for you! 
                 Make sure you understand each step and try similar problems on your own.
               </p>
             </div>
